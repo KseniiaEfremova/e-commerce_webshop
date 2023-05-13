@@ -1,38 +1,53 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--white);
+  color: var(--black);
+  font-family: var(--text-font);
+  font-size: 24px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.wrapper {
+  background: url('./img/hero-bg.png') no-repeat;
+  width: 100%;
+  height: auto;
+  background-size: 100% 50%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+main {
+  color: var(--white);
+}
+
+h1 {
+  margin: 20px;
+  font-family: var(--logo-font);
+  font-weight: 300;
+}
+
+h2 {
+  font-family: var(--paragr-font);
+  font-weight: 300;
+}
+
+p {
+  font-family: var(----text-font);
+}
+ button {
+  cursor: pointer;
+ }
+
+ button:hover {
+  background: rgba(245, 245, 245, 0.779);
+ }
+
+
+@media screen and (min-width: 600px) {
+  .wrapper {
+    background: url('./img/hero-bg.png') no-repeat;
+    width: 100%;
+    height: auto;
+    background-size: 100% 20%;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

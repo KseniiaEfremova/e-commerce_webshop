@@ -262,7 +262,7 @@ figure figcaption p {
     .grid-box {
         display: grid;
         grid-template-columns: auto auto auto;
-        grid-template-rows: auto auto auto auto;
+        grid-template-rows: auto auto auto;
         margin-top: 20px;
     }
 
@@ -293,27 +293,7 @@ figure figcaption p {
 
     .grid-item6 {
         grid-column: 3/4;
-        grid-row: 2/3;
-    }
-
-    .grid-item6 {
-        grid-column: 3/4;
-        grid-row: 2/3;
-    }
-
-    .grid-item7 {
-        grid-column: 1/2;
-        grid-row: 4/5;
-    }
-
-    .grid-item8 {
-        grid-column: 3/4;
-        grid-row: 3/5;
-    }
-
-    .grid-item9 {
-        grid-column: 2/3;
-        grid-row: 4/5;
+        grid-row: 2/4;
     }
 
     figure img {

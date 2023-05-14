@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-around;;
     align-items: center;
-    padding: 20px;
+    padding: 28px 10px 10px 10px;
 }
 
 .navbar h1 {
@@ -57,7 +57,7 @@
     }
 
     .navbar h1 {
-        font-size: 50px;
+        font-size: 60px;
     }
 
     .navbar ul {
@@ -69,7 +69,7 @@
         padding: 10px;
     }
     .navbar a {
-        font-size: 20px;
+        font-size: 25px;
         padding: 10px;
     }
 

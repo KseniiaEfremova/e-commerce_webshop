@@ -35,10 +35,13 @@ p {
 }
  button {
   cursor: pointer;
- }
+  transition: opacity 500ms ease;
+
+}
 
  button:hover {
   background: rgba(245, 245, 245, 0.779);
+  opacity: 0.5;
  }
 
 

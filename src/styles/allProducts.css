@@ -1,0 +1,43 @@
+.all-products-box h1 {
+    margin: 0;
+    padding: 15px;
+    font-size: 24px;
+}
+
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    gap: 1rem;
+}
+
+
+
+.product-card img{
+    width: 100%;
+    border-radius: 5%;
+}
+
+.product-card p{
+    margin: 0;
+    font-size: 14px;
+}
+
+.product-card div {
+    font-size: 12px;
+}
+
+.product-card div b {
+    margin-left: 5px;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+

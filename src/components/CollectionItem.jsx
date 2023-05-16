@@ -1,6 +1,6 @@
 import React from "react";
 
-const Product = (props) => {
+const CollectionItem = (props) => {
   return (
     <div key={props.id} className="product-item">
       <img
@@ -16,4 +16,4 @@ const Product = (props) => {
   );
 };
 
-export default Product;
+export default CollectionItem;

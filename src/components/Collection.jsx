@@ -1,5 +1,5 @@
 import React from "react";
-import Product from "./Product";
+import CollectionItem from "./CollectionItem";
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -29,7 +29,7 @@ const Collection = () => {
 
 
  const product = productData.map(item => (
-  <Product key={item.pk.id}
+  <CollectionItem key={item.pk.id}
             name={item.fields.name} 
             url={item.fields.image_url} 
             description={item.fields.description} />

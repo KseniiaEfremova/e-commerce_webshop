@@ -16,6 +16,7 @@
     padding: 10px;
     background-color: rgba(240, 248, 255, 0.273);
     border-radius: 5px;
+    overflow: hidden;
 }
 
 .product-card img{
@@ -25,11 +26,15 @@
 
 .product-card h5{
     margin: 0;
-    font-size: 14px;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
 }
 
 .product-card div {
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .product-card div b {
@@ -44,11 +49,10 @@
 }
 
 .card-bottom button {
-    background: #ffffff;
-    border: 1px solid #f3f3f3;
-    border-radius: 4px;
-    width: 15%;
-    font-size: 14px;
+    background: transparent;
+    border: none;
+    width: 22%;
+
 }
 
 
@@ -81,14 +85,6 @@
     
     .product-card div {
         font-size: 14px;
-    }
-    
-    .card-bottom button {
-        background: #ffffffd2;
-        width: 32px;
-        height: 32px;
-        font-size: 20px;
-        
     }
 }
 

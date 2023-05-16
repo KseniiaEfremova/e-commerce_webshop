@@ -78,8 +78,8 @@ figure figcaption p {
 
     .grid-box {
         display: grid;
-        grid-template-columns: auto auto auto;
-        grid-template-rows: auto auto auto;
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: repeat(3, auto);
         margin-top: 20px;
     }
 

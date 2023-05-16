@@ -1,3 +1,7 @@
+.all-products-box {
+    border-top: 1px solid gray;
+}
+
 .all-products-box h1 {
     margin: 0;
     padding: 0;
@@ -102,7 +106,7 @@ input:focus {
 /* styiling for desktop version */
 @media screen and (min-width: 600px) {
     .all-products-box {
-        padding: 56px;
+        padding: 10px 56px;
     }
     .all-products-box h1 {
         padding: 30px;

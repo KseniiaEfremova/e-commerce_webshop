@@ -1,11 +1,8 @@
 import React from 'react';
 import '../styles/header.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import unlikedHeart from '../img/heart.svg';
+import cart from '../img/cart.svg';
 
-const heart = <FontAwesomeIcon icon={faHeart} />
-const cart = <FontAwesomeIcon icon={faCartShopping} />;
 
 export default function Header() {
     return (
@@ -18,8 +15,8 @@ export default function Header() {
                     <li>CONTACT US</li>
                 </ul>
                 <span>
-                    <a href="/">{heart}</a>
-                    <a href="/">{cart}</a>
+                    <a href="/"><img src={unlikedHeart} alt="unliked heart" /></a>
+                    <a href="/"><img src={cart} alt="unliked heart" /></a>
                 </span>
             </nav>
         </header>

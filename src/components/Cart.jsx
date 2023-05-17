@@ -1,14 +1,16 @@
 import React from 'react';
 import '../styles/cart.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSquareXmark } from '@fortawesome/free-solid-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
-const crossBtn = <FontAwesomeIcon icon={faSquareXmark} size="xl" />
+const crossBtn = <FontAwesomeIcon icon={faXmark} />
+const trashBtn = <FontAwesomeIcon icon={faTrashCan} />
 
 export default function Cart() {
     return (
 
-        <div style={{display:'none'}} className='overlay'>
+        <div className='overlay' style={{display:'none'}}>
             <div className='cart'>
                 <h3>Shopping bag
                     <span>{crossBtn}</span>
@@ -22,7 +24,7 @@ export default function Cart() {
                             </p>
                             <b>£ 156</b>
                         </div>
-                        <span>{crossBtn}</span>
+                        <span>{trashBtn}</span>
                     </div>
                     <div className="cartItem">
                         <img src={require("../img/hero-trainers.jpg")} alt="trainers" />
@@ -32,7 +34,7 @@ export default function Cart() {
                             </p>
                             <b>£ 156</b>
                         </div>
-                        <span>{crossBtn}</span>
+                        <span>{trashBtn}</span>
                     </div>
                 </div>
                 <div className="cartTotalBlock">

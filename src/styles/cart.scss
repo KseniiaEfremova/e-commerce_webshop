@@ -1,3 +1,14 @@
+span {
+    cursor: pointer;
+    opacity: 0.2;
+    transition: opacity 500ms ease;
+
+}
+
+span:hover {
+    opacity: 0.5;
+}
+
 .cart {
     display: flex;
     flex-direction: column;
@@ -9,6 +20,9 @@
     box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
 
     h3 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         margin: 0;
         padding: 15px 15px 0 15px;
         font-size: 20px;
@@ -16,6 +30,11 @@
 
     ul {
         display: flex;
+    }
+
+    .cartItems {
+        overflow: au
+        ;
     }
 }
 
@@ -45,14 +64,7 @@
 
     span {
         padding: 5px;
-        cursor: pointer;
-        opacity: 0.4;
-        transition: opacity 500ms ease;
 
-    }
-
-    span:hover {
-        opacity: 0.9;
     }
 }
 

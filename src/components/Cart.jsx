@@ -10,7 +10,9 @@ export default function Cart() {
 
         <div className='overlay'>
             <div className='cart'>
-                <h3>Shopping bag</h3>
+                <h3>Shopping bag
+                    <span>{crossBtn}</span>
+                </h3>
                 <div className="cartItems">
                     <div className="cartItem">
                         <img src={require("../img/hero-trainers.jpg")} alt="trainers" />

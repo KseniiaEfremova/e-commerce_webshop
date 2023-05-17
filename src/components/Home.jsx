@@ -1,6 +1,6 @@
 import React from "react";
 import Hero from "./Hero";
-import "../styles/home.css";
+import "../styles/home.scss";
 import Collection from "./Collection";
 import Categories from "./Categories";
 

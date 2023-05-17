@@ -1,6 +1,6 @@
 import React from 'react';
 import data from '../products.json';
-import '../styles/allProducts.css';
+import '../styles/allProducts.scss';
 import ProductItem from './ProductItem';
 import searchIcon from '../img/search.svg';
 

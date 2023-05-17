@@ -10,8 +10,8 @@ function App() {
     <div className='wrapper'>
       < Cart />
       <Header />
-      <Home/>
-      {/* <AllProducts /> */}
+      {/* <Home/> */}
+      <AllProducts />
       <Footer />
     </div>
   );

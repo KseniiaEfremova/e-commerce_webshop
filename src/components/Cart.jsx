@@ -8,7 +8,7 @@ const crossBtn = <FontAwesomeIcon icon={faSquareXmark} size="xl" />
 export default function Cart() {
     return (
 
-        <div className='overlay'>
+        <div style={{display:'none'}} className='overlay'>
             <div className='cart'>
                 <h3>Shopping bag
                     <span>{crossBtn}</span>

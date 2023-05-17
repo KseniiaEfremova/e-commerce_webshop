@@ -1,0 +1,61 @@
+/* styiling for mobile version */
+.flex-footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    background: var(--footer-bg-color);
+    color: whitesmoke;
+    font-size: 8px;
+    padding: 10px 35px;
+
+    h1 {
+        font-size: 30px;
+        margin: 0;
+    }
+
+    svg {
+        width: 15px;
+        height: 15px;
+        color: whitesmoke;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+            margin: 0;
+            list-style-type: none;
+        }
+    }
+
+    p {
+        font-weight: 600;
+    }
+}
+
+/* styiling for desktop version */
+@media screen and (min-width: 600px) {
+    .flex-footer {
+        padding: 60px 200px;
+        font-size: 12px;
+        justify-content: space-evenly;
+
+        h1 {
+            font-size: 50px;
+        }
+
+        svg {
+            width: 25px;
+            height: 25px;
+            color: whitesmoke;
+            padding: 5px 3px 0 0;
+        }
+
+        div:first-child p {
+            padding: 0 5px;
+        }
+    }
+}

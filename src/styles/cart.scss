@@ -1,13 +1,4 @@
-span {
-    cursor: pointer;
-    opacity: 0.2;
-    transition: opacity 500ms ease;
-
-}
-
-span:hover {
-    opacity: 0.5;
-}
+/* Styling for mobile version */
 
 .cart {
     display: flex;
@@ -26,6 +17,17 @@ span:hover {
         margin: 0;
         padding: 15px 15px 0 15px;
         font-size: 20px;
+
+        span {
+            cursor: pointer;
+            opacity: 0.2;
+            transition: opacity 500ms ease;
+
+        }
+
+        span:hover {
+            opacity: 0.5;
+        }
     }
 
     ul {
@@ -33,12 +35,11 @@ span:hover {
     }
 
     .cartItems {
-        overflow: au
-        ;
+        overflow: auto;
     }
 }
 
-
+// added cart items
 .cartItem {
     display: flex;
     align-items: center;
@@ -64,11 +65,17 @@ span:hover {
 
     span {
         padding: 5px;
+        cursor: pointer;
+        opacity: 0.2;
+        transition: opacity 500ms ease;
+    }
 
+    span:hover {
+        opacity: 0.5;
     }
 }
 
-
+// checkout cart Total Block
 .cartTotalBlock {
     margin: 15px;
 
@@ -105,7 +112,7 @@ span:hover {
     }
 }
 
-
+/* styiling for desktop version */
 @media screen and (min-width: 600px) {
     .overlay {
         position: absolute;

@@ -1,13 +1,5 @@
 import React from "react";
-import '../styles/categories.css';
-import accessories from "../img/bg-accessories.jpg";
-import clothing from "../img/bg-clothing.jpg";
-import home from "../img/bg-home.jpg";
-import tech from "../img/bg-tech.png";
-import essentials from "../img/Essentials";
-import Arrivals from "../img/Arrivals.jpg";
-
-
+import '../styles/categories.scss';
 
 const Categories = () => {
   return (
@@ -17,7 +9,7 @@ const Categories = () => {
         <div className="category grid-item1">
           <figure>
             <a href="/">
-              <img src={clothing} alt="bg-clothing img-category" />
+              <img src={require("../img/bg-clothing.jpg")} alt="bg-clothing img-category" />
             </a>
             <figcaption>
               <a href="/">
@@ -29,7 +21,7 @@ const Categories = () => {
         </div>
         <div className="category grid-item2">
           <figure>
-            <a href="/"><img src={home} alt="bg-home img-category" /></a>
+            <a href="/"><img src={require("../img/bg-home.jpg")} alt="bg-home img-category" /></a>
             <figcaption>
               <a href="/">
                 <h4>Bed & Bath</h4>
@@ -40,7 +32,7 @@ const Categories = () => {
         </div>
         <div className="category grid-item3">
           <figure>
-            <a href="/"><img src={accessories} alt="bg-clothing img-category" /></a>
+            <a href="/"><img src={require("../img/bg-accessories.jpg")} alt="bg-accessories img-category" /></a>
             <figcaption>
               <a href="/">
                 <h4>Clearance</h4>
@@ -52,7 +44,7 @@ const Categories = () => {
         </div>
         <div className="category grid-item4">
           <figure>
-            <a href="/"><img src={tech} alt="bg-home img-category" /></a>
+            <a href="/"><img src={require("../img/bg-tech.png")} alt="bg-tech img-category" /></a>
             <figcaption>
               <a href="/">
                 <h4>Deals</h4>
@@ -64,7 +56,7 @@ const Categories = () => {
         <div className="category grid-item5">
           <figure>
             <a href="/">
-              <img src={essentials} alt="bg-home img-category" />
+              <img src={require("../img/Essentials")} alt="Essentials img-category" />
             </a>
             <figcaption>
               <a href="/">
@@ -78,7 +70,7 @@ const Categories = () => {
         <div className="category grid-item6">
           <figure>
             <a href="/">
-              <img src={Arrivals} alt="bg-home img-category" />
+              <img src={require("../img/Arrivals.jpg")}alt="Arrivals img-category" />
             </a>
             <figcaption>
               <a href="/">

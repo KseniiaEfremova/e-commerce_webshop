@@ -1,6 +1,6 @@
 import plus from '../img/btn-plus.svg';
 import unlikedHeart from '../img/heart.svg';
-import likedHeart from '../img/heart.svg';
+// import likedHeart from '../img/heart.svg';
 
 
 const ProductItem = (props) => {

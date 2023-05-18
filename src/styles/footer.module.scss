@@ -1,5 +1,5 @@
 /* styiling for mobile version */
-.flex-footer {
+.flexFooter {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -38,7 +38,7 @@
 
 /* styiling for desktop version */
 @media screen and (min-width: 600px) {
-    .flex-footer {
+    .flexFooter {
         padding: 60px 200px;
         font-size: 12px;
         justify-content: space-evenly;

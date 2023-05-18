@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/header.scss';
+import styles from '../styles/header.module.scss';
 import unlikedHeart from '../img/heart.svg';
 import cart from '../img/cart.svg';
 
@@ -7,7 +7,7 @@ import cart from '../img/cart.svg';
 export default function Header() {
     return (
         <header>
-            <nav className='navbar'>
+            <nav className={styles.navbar}>
                 <h1>FLOOM</h1>
                 <ul>
                     <li>HOME</li>

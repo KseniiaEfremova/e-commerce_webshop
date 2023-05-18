@@ -1,15 +1,15 @@
 import React from "react";
-import '../styles/categories.scss';
+import styles from "./categories.module.scss";
 
 const Categories = () => {
   return (
-    <div className="categories">
+    <div className={styles.categories}>
       <h1>OUR PRODUCTS</h1>
-      <div className="grid-box">
-        <div className="category grid-item1">
+      <div className={styles.gridBox}>
+        <div className={styles.gridItem1}>
           <figure>
             <a href="/">
-              <img src={require("../img/bg-clothing.jpg")} alt="bg-clothing img-category" />
+              <img src={require("../../img/bg-clothing.jpg")} alt="bg-clothing img-category" />
             </a>
             <figcaption>
               <a href="/">
@@ -19,9 +19,9 @@ const Categories = () => {
             </figcaption>
           </figure>
         </div>
-        <div className="category grid-item2">
+        <div className={styles.gridItem2}>
           <figure>
-            <a href="/"><img src={require("../img/bg-home.jpg")} alt="bg-home img-category" /></a>
+            <a href="/"><img src={require("../../img/bg-home.jpg")} alt="bg-home img-category" /></a>
             <figcaption>
               <a href="/">
                 <h4>Bed & Bath</h4>
@@ -30,9 +30,9 @@ const Categories = () => {
             </figcaption>
           </figure>
         </div>
-        <div className="category grid-item3">
+        <div className={styles.gridItem3}>
           <figure>
-            <a href="/"><img src={require("../img/bg-accessories.jpg")} alt="bg-accessories img-category" /></a>
+            <a href="/"><img src={require("../../img/bg-accessories.jpg")} alt="bg-accessories img-category" /></a>
             <figcaption>
               <a href="/">
                 <h4>Clearance</h4>
@@ -42,9 +42,9 @@ const Categories = () => {
             </figcaption>
           </figure>
         </div>
-        <div className="category grid-item4">
+        <div className={styles.gridItem4}>
           <figure>
-            <a href="/"><img src={require("../img/bg-tech.png")} alt="bg-tech img-category" /></a>
+            <a href="/"><img src={require("../../img/bg-tech.png")} alt="bg-tech img-category" /></a>
             <figcaption>
               <a href="/">
                 <h4>Deals</h4>
@@ -53,10 +53,10 @@ const Categories = () => {
             </figcaption>
           </figure>
         </div>
-        <div className="category grid-item5">
+        <div className={styles.gridItem5}>
           <figure>
             <a href="/">
-              <img src={require("../img/Essentials")} alt="Essentials img-category" />
+              <img src={require("../../img/Essentials")} alt="Essentials img-category" />
             </a>
             <figcaption>
               <a href="/">
@@ -67,10 +67,10 @@ const Categories = () => {
           </figure>
         </div>
 
-        <div className="category grid-item6">
+        <div className={styles.gridItem6}>
           <figure>
             <a href="/">
-              <img src={require("../img/Arrivals.jpg")}alt="Arrivals img-category" />
+              <img src={require("../../img/Arrivals.jpg")}alt="Arrivals img-category" />
             </a>
             <figcaption>
               <a href="/">

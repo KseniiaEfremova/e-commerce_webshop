@@ -1,10 +1,10 @@
 import React from 'react';
-import '../styles/footer.scss';
+import styles from '../styles/footer.module.scss';
 
 export default function Footer(props) {
     return (
         <footer>
-            <div className="footer flex-footer">
+            <div className={styles.flexFooter}>
                 <div>
                     <h1>FLOOM</h1>
                     <p>Social Media</p>

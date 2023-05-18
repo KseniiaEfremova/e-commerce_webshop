@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/cart.scss';
+import styles from '../styles/cart.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
@@ -9,14 +9,14 @@ const trashBtn = <FontAwesomeIcon icon={faTrashCan} />
 
 export default function Cart() {
     return (
-
-        <div className='overlay' style={{display:'none'}}>
-            <div className='cart'>
+// style={{display:'none'}}
+        <div className={styles.overlay} style={{display:'none'}}>
+            <div className={styles.cart}>
                 <h3>Shopping bag
                     <span>{crossBtn}</span>
                 </h3>
-                <div className="cartItems">
-                    <div className="cartItem">
+                <div className={styles.cartItems}>
+                    <div className={styles.cartItem}>
                         <img src={require("../img/hero-trainers.jpg")} alt="trainers" />
                         <div>
                             <p>
@@ -26,7 +26,7 @@ export default function Cart() {
                         </div>
                         <span>{trashBtn}</span>
                     </div>
-                    <div className="cartItem">
+                    <div className={styles.cartItem}>
                         <img src={require("../img/hero-trainers.jpg")} alt="trainers" />
                         <div>
                             <p>
@@ -36,8 +36,9 @@ export default function Cart() {
                         </div>
                         <span>{trashBtn}</span>
                     </div>
+
                 </div>
-                <div className="cartTotalBlock">
+                <div className={styles.cartTotalBlock}>
                     <ul>
                         <li>
                             <span>Total:</span>
@@ -50,7 +51,7 @@ export default function Cart() {
                             <b>£ 15.6</b>
                         </li>
                     </ul>
-                    <button className='greenButton'>
+                    <button className={styles.greenButton}>
                         Checkout
                     </button>
                 </div>

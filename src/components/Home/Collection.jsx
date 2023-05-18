@@ -1,6 +1,6 @@
 import React from "react";
 import CollectionItem from "./CollectionItem";
-
+import styles from "./home.module.scss";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -35,9 +35,9 @@ const Collection = (props) => {
  ))
 
   return (
-    <div className="collection">
+    <div className={styles.collection}>
       <h1>FROM THE COLLECTION</h1>
-      <div className="product-items">
+      <div className={styles.productItems}>
         <Carousel responsive={responsive}>
           {product}
         </Carousel>

@@ -1,8 +1,9 @@
 import React from "react";
+import styles from "./home.module.scss";
 
 const CollectionItem = (props) => {
   return (
-    <div key={props.id} className="product-item">
+    <div key={props.id} className={styles.productItem}>
       <img
         src={props.url}
         alt="the product item with description"

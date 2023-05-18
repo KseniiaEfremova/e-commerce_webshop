@@ -1,5 +1,5 @@
 import './App.css';
-import Home from './components/Home';
+import Home from './components/Home/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import AllProducts from './components/AllProducts';
@@ -13,8 +13,8 @@ function App() {
     <div className='wrapper'>
       < Cart />
       <Header />
-      {/* <Home data={productData}/> */}
-      <AllProducts data={productsData}/>
+      <Home data={productsData}/>
+      {/* <AllProducts data={productsData}/> */}
       <Footer categories={categories}/>
     </div>
   );

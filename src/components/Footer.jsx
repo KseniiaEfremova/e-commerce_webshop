@@ -1,8 +1,7 @@
 import React from 'react';
 import '../styles/footer.scss';
-import data from '../categories.json';
 
-export default function Footer() {
+export default function Footer(props) {
     return (
         <footer>
             <div className="footer flex-footer">
@@ -28,7 +27,7 @@ export default function Footer() {
                 <div>
                     <p>Products</p>
                     <ul>
-                        {data.map(item => (
+                        {props.categories.map(item => (
                             <li key={item.pk}>
                                 {item.fields.friendly_name}
                             </li>

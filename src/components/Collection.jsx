@@ -4,9 +4,8 @@ import CollectionItem from "./CollectionItem";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-import productData from "../products.json";
 
-const Collection = () => {
+const Collection = (props) => {
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -28,7 +27,7 @@ const Collection = () => {
   };
 
 
- const product = productData.map(item => (
+ const product = props.data.map(item => (
   <CollectionItem key={item.pk.id}
             name={item.fields.name} 
             url={item.fields.image_url} 

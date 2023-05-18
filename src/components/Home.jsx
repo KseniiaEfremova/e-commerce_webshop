@@ -4,11 +4,11 @@ import "../styles/home.scss";
 import Collection from "./Collection";
 import Categories from "./Categories";
 
-const Home = () => {
+const Home = (props) => {
   return (
     <>
       <Hero />
-      <Collection />
+      <Collection data={props.data}/>
       <Categories />
     </>
   );

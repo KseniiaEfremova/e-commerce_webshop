@@ -14,7 +14,9 @@ const ProductItem = (props) => {
             <h5>{props.name}</h5>
             <div className='card-bottom'>
                 <span>Price:<b>{props.price} $</b></span>
-                <button><img src={plus} alt="button plus img" /></button>
+                <button onClick={() => {alert(123)}}>
+                    <img src={plus} alt="button plus img" />
+                </button>
             </div>
         </div>
     )

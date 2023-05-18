@@ -50,29 +50,11 @@ input:focus {
 .productCard {
     margin: 5px;
     padding: 10px;
-    background-color: rgba(240, 248, 255, 0.273);
+    background-color: rgba(0, 4, 7, 0.133);
     border-radius: 5px;
     overflow: hidden;
     transition: box-shadow 300ms ease, transform 0.2s ease;
-    cursor: pointer;
 
-    .productCard:hover {
-        box-shadow: 0px 20px 20px #53525278;
-        transform: translateY(-5px);
-    }
-}
-
-.favorite {
-    position: absolute;
-    cursor: pointer;
-
-    img {
-        width: 5%;
-        margin: 2px;
-    }
-}
-
-.productCard {
     img {
         width: 100%;
         border-radius: 4%;
@@ -93,6 +75,33 @@ input:focus {
             display: block;
         }
     }
+
+    .viewItem {
+        font-family: var(--paragr-font);
+        width: 100%;
+        margin: 15px 0;
+        padding: 6px;
+        background-color: transparent;
+        border: 1px solid black;
+        border-radius: 5px;
+        box-shadow: 0px 2px 12px #656565;
+
+    }
+}
+
+.productCard:hover {
+    box-shadow: 0px 20px 20px #53525278;
+    transform: translateY(-5px);
+}
+
+.favorite {
+    position: absolute;
+    cursor: pointer;
+
+    img {
+        width: 5%;
+        margin: 2px;
+    }
 }
 
 .cardBottom {
@@ -101,11 +110,11 @@ input:focus {
     align-items: center;
     margin-top: 10px;
 
-    button {
-        background: transparent;
-        border: none;
-        width: 22%;
+    .plus {
+        width: 15%;
+        cursor: pointer;
     }
+
 }
 
 /* styiling for desktop version */
@@ -115,7 +124,7 @@ input:focus {
 
         h1 {
             padding: 30px;
-            font-size: 50px;
+            font-size: 40px;
             text-align: center;
         }
     }
@@ -133,7 +142,7 @@ input:focus {
     .productCard {
         margin: 5px;
         padding: 10px;
-        background-color: rgba(240, 248, 255, 0.122);
+        background-color: rgba(61, 61, 61, 0.122);
         border-radius: 5px;
 
         .favorite {
@@ -151,4 +160,5 @@ input:focus {
             font-size: 14px;
         }
     }
+    
 }

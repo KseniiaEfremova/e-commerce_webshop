@@ -10,7 +10,8 @@ const AllProducts = (props) => {
               name={item.fields.name} 
               url={item.fields.image_url} 
               price={item.fields.price}
-              onClick={() => {console.log(item)}} />
+              onFavorite={() => {console.log("Added to Favorite")}}
+              onPlus={() => {console.log("Added to Cart")}} />
    ))
   return (
     <section className={styles.allProductsBox}>

@@ -13,8 +13,8 @@ function App() {
     <div className='wrapper'>
       < Cart />
       <Header />
-      <Home data={productsData}/>
-      {/* <AllProducts data={productsData}/> */}
+      {/* <Home data={productsData}/> */}
+      <AllProducts data={productsData}/>
       <Footer categories={categories}/>
     </div>
   );

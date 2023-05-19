@@ -15,8 +15,8 @@ export default function Header(props) {
                     <li>CONTACT US</li>
                 </ul>
                 <span>
-                    <a href="/"><img src={unlikedHeart} alt="unliked heart" /></a>
-                    <a onClick={props.onClickCart} href="/"><img src={cart} alt="unliked heart" /></a>
+                    <img src={unlikedHeart} alt="unliked heart" />
+                    <img onClick={props.onClickCart} src={cart} alt="unliked heart" />
                 </span>
             </nav>
         </header>

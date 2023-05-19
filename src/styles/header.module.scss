@@ -39,9 +39,11 @@
         display: flex;
     }
 
-    a {
+    img {
+        width: 70%;
         display: flex;
         transition: opacity 500ms ease;
+        cursor: pointer;
 
         &:hover {
             opacity: 0.5;
@@ -50,10 +52,6 @@
         &:visited {
             color: black;
         }
-    }
-
-    img {
-        width: 70%;
     }
 }
 

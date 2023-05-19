@@ -6,17 +6,33 @@ import AllProducts from './components/AllProducts';
 import Cart from './components/Cart';
 import productsData from "./products.json";
 import categories from './categories.json';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 function App() {
+  const [products, setProducts] = useState([])
+  const [cartProducts, setCartProducts] = useState([])
   const [cartOpened, setcartOpened] = useState(false);
+
+  useEffect(() => {
+      fetch('https://64674fcfba7110b663b4f74d.mockapi.io/products')
+  .then(res => {
+        return res.json();
+      })
+  .then((json) => {
+    setProducts(json);
+  })
+  }, [])
+
+
+  
+
   return (
     <div className='wrapper'>
-      { cartOpened ? <Cart/> : null}
+      { cartOpened && <Cart onCloseCart={() => setcartOpened(false)}/>}
       <Header onClickCart={() => setcartOpened(true)}/>
       {/* <Home data={productsData}/> */}
-      <AllProducts data={productsData}/>
+      <AllProducts data={products}/>
       <Footer categories={categories}/>
     </div>
   );

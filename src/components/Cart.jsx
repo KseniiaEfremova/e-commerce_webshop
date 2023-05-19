@@ -7,13 +7,12 @@ import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 const crossBtn = <FontAwesomeIcon icon={faXmark} />
 const trashBtn = <FontAwesomeIcon icon={faTrashCan} />
 
-export default function Cart() {
-    
+export default function Cart(props) {
     return (
         <div className={styles.overlay}>
             <div className={styles.cart}>
                 <h3>Shopping bag
-                    <span>{crossBtn}</span>
+                    <span onClick={props.onCloseCart} >{crossBtn}</span>
                 </h3>
                 <div className={styles.cartItems}>
                     <div className={styles.cartItem}>

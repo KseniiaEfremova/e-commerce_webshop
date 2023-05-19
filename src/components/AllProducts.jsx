@@ -2,16 +2,20 @@ import React from 'react';
 import styles from '../styles/allProducts.module.scss';
 import ProductItem from './ProductItem';
 import searchIcon from '../img/search.svg';
+import { useState } from 'react';
+
 
 
 const AllProducts = (props) => {
+  
   const productItem = props.data.map(item => (
     <ProductItem key={item.pk.id}
               name={item.fields.name} 
               url={item.fields.image_url} 
               price={item.fields.price}
               onFavorite={() => {console.log("Added to Favorite")}}
-              onPlus={() => {console.log("Added to Cart")}} />
+              onPlus={(obj) => props.onAddToCart(obj)} 
+              />
    ))
   return (
     <section className={styles.allProductsBox}>

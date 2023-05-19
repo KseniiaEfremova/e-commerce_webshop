@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 
 
 function App() {
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([]);
   const [cartProducts, setCartProducts] = useState([])
   const [cartOpened, setcartOpened] = useState(false);
 
@@ -24,15 +24,20 @@ function App() {
   })
   }, [])
 
+  const onAddToCart = (obj) => {
+    setCartProducts([...cartProducts, obj]);
+  };
 
-  
-
+  console.log(cartProducts);
   return (
     <div className='wrapper'>
-      { cartOpened && <Cart onCloseCart={() => setcartOpened(false)}/>}
+      { cartOpened && <Cart products={cartProducts} 
+                            onAddToCart={onAddToCart} 
+                            onCloseCart={() => setcartOpened(false)}/>}
       <Header onClickCart={() => setcartOpened(true)}/>
       {/* <Home data={productsData}/> */}
-      <AllProducts data={products}/>
+      <AllProducts data={products} 
+                  onAddToCart={onAddToCart}/>
       <Footer categories={categories}/>
     </div>
   );

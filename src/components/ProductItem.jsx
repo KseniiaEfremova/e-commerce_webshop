@@ -9,24 +9,25 @@ import { useState } from 'react';
 
 
 
-const ProductItem = (props) => {
+const ProductItem = ({name, url, price, onFavorite, onPlus }) => {
     const [isAdded, setIsAdded] = useState(false);
 
     const onClickPlus = () => {
+        onPlus({name, url, price});
         setIsAdded(!isAdded);
     };
 
     return (
         <div className={styles.productCard}>
-            <div className={styles.favorite} onClick={props.onFavorite}>
+            <div className={styles.favorite} onClick={onFavorite}>
                 <img src={unlikedHeart} alt="unliked heart" />
             </div>
 
-            <img src={props.url} alt="" />
-            <h5>{props.name}</h5>
+            <img src={url} alt="" />
+            <h5>{name}</h5>
             <button className={styles.viewItem}>View Item</button>
             <div className={styles.cardBottom}>
-                <span>Price:<b>£ {props.price}</b></span>
+                <span>Price:<b>£ {price}</b></span>
                 {/* <img className={styles.plus} src={checked} alt="checked button" /> */}
                 <img onClick={onClickPlus} className={styles.plus} src={isAdded ? checked : add} alt="plus button" />
 

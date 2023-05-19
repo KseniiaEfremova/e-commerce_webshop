@@ -7,34 +7,29 @@ import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 const crossBtn = <FontAwesomeIcon icon={faXmark} />
 const trashBtn = <FontAwesomeIcon icon={faTrashCan} />
 
-export default function Cart(props) {
+export default function Cart({ onCloseCart, products = [] }) {
+    console.log(products);
+    // debugger
     return (
         <div className={styles.overlay}>
             <div className={styles.cart}>
                 <h3>Shopping bag
-                    <span onClick={props.onCloseCart} >{crossBtn}</span>
+                    <span onClick={onCloseCart} >{crossBtn}</span>
                 </h3>
                 <div className={styles.cartItems}>
-                    <div className={styles.cartItem}>
-                        <img src={require("../img/hero-trainers.jpg")} alt="trainers" />
-                        <div>
-                            <p>
-                                New Balance Casablanca 327
-                            </p>
-                            <b>£ 156</b>
+                    {products.map((item) => (
+                        <div key={item.id} className={styles.cartItem}>
+                            {/* <img src={require(item.url)} alt="trainers" /> */}
+                            <div>
+                                <p>
+                                    {item.name}
+                                </p>
+                                <b>£ {item.price}</b>
+                            </div>
+                            <span>{trashBtn}</span>
                         </div>
-                        <span>{trashBtn}</span>
-                    </div>
-                    <div className={styles.cartItem}>
-                        <img src={require("../img/hero-trainers.jpg")} alt="trainers" />
-                        <div>
-                            <p>
-                                New Balance Casablanca 327
-                            </p>
-                            <b>£ 156</b>
-                        </div>
-                        <span>{trashBtn}</span>
-                    </div>
+                    ))}
+
 
                 </div>
                 <div className={styles.cartTotalBlock}>

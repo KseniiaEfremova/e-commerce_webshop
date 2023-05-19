@@ -6,13 +6,15 @@ import AllProducts from './components/AllProducts';
 import Cart from './components/Cart';
 import productsData from "./products.json";
 import categories from './categories.json';
+import { useState } from 'react';
 
 
 function App() {
+  const [cartOpened, setcartOpened] = useState(false);
   return (
     <div className='wrapper'>
-      < Cart />
-      <Header />
+      { cartOpened ? <Cart/> : null}
+      <Header onClickCart={() => setcartOpened(true)}/>
       {/* <Home data={productsData}/> */}
       <AllProducts data={productsData}/>
       <Footer categories={categories}/>

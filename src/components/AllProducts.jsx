@@ -19,7 +19,7 @@ const AllProducts = (props) => {
         <h1>OUR PRODUCTS</h1>
         <form action="" className={styles.searchBlock}>
           <img src={searchIcon} alt="search icon " />
-          <label for="search"></label>
+          <label htmlFor="search"></label>
           <input type="text" name='search' placeholder='Search...'/>
         </form>
       </div>

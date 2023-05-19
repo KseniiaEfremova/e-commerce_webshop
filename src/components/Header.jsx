@@ -4,7 +4,7 @@ import unlikedHeart from '../img/heart.svg';
 import cart from '../img/cart.svg';
 
 
-export default function Header() {
+export default function Header(props) {
     return (
         <header>
             <nav className={styles.navbar}>
@@ -16,7 +16,7 @@ export default function Header() {
                 </ul>
                 <span>
                     <a href="/"><img src={unlikedHeart} alt="unliked heart" /></a>
-                    <a href="/"><img src={cart} alt="unliked heart" /></a>
+                    <a onClick={props.onClickCart} href="/"><img src={cart} alt="unliked heart" /></a>
                 </span>
             </nav>
         </header>

@@ -11,34 +11,51 @@ import { useEffect, useState } from 'react';
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [cartProducts, setCartProducts] = useState([])
+  const [cartProducts, setCartProducts] = useState([]);
   const [cartOpened, setcartOpened] = useState(false);
 
   useEffect(() => {
-      fetch('https://64674fcfba7110b663b4f74d.mockapi.io/products')
-  .then(res => {
+    fetch('https://64674fcfba7110b663b4f74d.mockapi.io/products')
+      .then(res => {
         return res.json();
       })
-  .then((json) => {
-    setProducts(json);
-  })
+      .then((json) => {
+        setProducts(json);
+      })
   }, [])
 
   const onAddToCart = (obj) => {
-    setCartProducts([...cartProducts, obj]);
+    // cartProducts.forEach((item) => {
+    //   if (item !== obj) {
+    //     setCartProducts(prev => [...prev, obj]);
+    //   }
+    // }) 
+    if (!cartProducts.includes(obj)) {
+      setCartProducts(prev => [...prev, obj]);
+    }
+  };
+
+  const onRemoveFromCart = (obj) => {
+    cartProducts.forEach((item) => {
+      if (item.id === obj) {
+        const index = cartProducts.indexOf(item);
+        cartProducts.splice(index, 1);
+      }
+    })
+    setCartProducts(prev => [...prev]);
   };
 
   console.log(cartProducts);
   return (
     <div className='wrapper'>
-      { cartOpened && <Cart products={cartProducts} 
-                            onAddToCart={onAddToCart} 
-                            onCloseCart={() => setcartOpened(false)}/>}
-      <Header onClickCart={() => setcartOpened(true)}/>
+      {cartOpened && <Cart products={cartProducts}
+        onRemoveFromCart={onRemoveFromCart}
+        onCloseCart={() => setcartOpened(false)} />}
+      <Header onClickCart={() => setcartOpened(true)} />
       {/* <Home data={productsData}/> */}
-      <AllProducts data={products} 
-                  onAddToCart={onAddToCart}/>
-      <Footer categories={categories}/>
+      <AllProducts data={products}
+        onAddToCart={onAddToCart} />
+      <Footer categories={categories} />
     </div>
   );
 }

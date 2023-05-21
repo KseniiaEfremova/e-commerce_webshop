@@ -7,9 +7,7 @@ import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 const crossBtn = <FontAwesomeIcon icon={faXmark} />
 const trashBtn = <FontAwesomeIcon icon={faTrashCan} />
 
-export default function Cart({ onCloseCart, products = [] }) {
-    console.log(products);
-    // debugger
+export default function Cart({ onCloseCart,onRemoveFromCart, products = [] }) {
     return (
         <div className={styles.overlay}>
             <div className={styles.cart}>
@@ -26,7 +24,7 @@ export default function Cart({ onCloseCart, products = [] }) {
                                 </p>
                                 <b>£ {item.price}</b>
                             </div>
-                            <span>{trashBtn}</span>
+                            <span onClick={() => onRemoveFromCart(item.id)}>{trashBtn}</span>
                         </div>
                     ))}
 

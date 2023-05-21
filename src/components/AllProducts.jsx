@@ -9,7 +9,8 @@ import { useState } from 'react';
 const AllProducts = (props) => {
   
   const productItem = props.data.map(item => (
-    <ProductItem key={item.pk.id}
+    <ProductItem key={item.pk}
+              id={item.pk}
               name={item.fields.name} 
               url={item.fields.image_url} 
               price={item.fields.price}

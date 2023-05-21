@@ -9,11 +9,10 @@ import { useState } from 'react';
 
 
 
-const ProductItem = ({name, url, price, onFavorite, onPlus }) => {
+const ProductItem = ({id, name, url, price, onFavorite, onPlus }) => {
     const [isAdded, setIsAdded] = useState(false);
-
     const onClickPlus = () => {
-        onPlus({name, url, price});
+        onPlus({id, name, url, price});
         setIsAdded(!isAdded);
     };
 

@@ -11,6 +11,8 @@ import { useState } from 'react';
 
 const ProductItem = ({id, name, url, price, onFavorite, onPlus }) => {
     const [isAdded, setIsAdded] = useState(false);
+    const [isFavorite, setIsFavorite] = useState(false);
+
     const onClickPlus = () => {
         onPlus({id, name, url, price});
         setIsAdded(!isAdded);

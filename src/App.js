@@ -23,14 +23,7 @@ function App() {
       });
   }, [])
 
-
-
   const onAddToCart = (obj) => {
-    // cartProducts.forEach((item) => {
-    //   if (item !== obj) {
-    //     setCartProducts(prev => [...prev, obj]);
-    //   }
-    // }) 
     axios.post('https://64674fcfba7110b663b4f74d.mockapi.io/cart', obj);
     if (!cartProducts.includes(obj)) {
       setCartProducts(prev => [...prev, obj]);
@@ -45,12 +38,12 @@ function App() {
   return (
     <div className='wrapper'>
       {cartOpened && <Cart products={cartProducts}
-        onRemoveFromCart={onRemoveFromCart}
-        onCloseCart={() => setcartOpened(false)} />}
+                          onRemoveFromCart={onRemoveFromCart}
+                          onCloseCart={() => setcartOpened(false)} />}
       <Header onClickCart={() => setcartOpened(true)} />
-      {/* <Home data={productsData}/> */}
+      {/* <Home data={products}/> */}
       <AllProducts data={products}
-        onAddToCart={onAddToCart}/>
+                  onAddToCart={onAddToCart}/>
       <Footer categories={categories} />
     </div>
   );

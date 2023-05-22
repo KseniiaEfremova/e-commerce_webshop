@@ -1,9 +1,8 @@
-import unlikedHeart from '../img/heart.svg';
-// import likedHeart from '../img/heart.svg';
+import unlikedHeart from '../img/unliked.svg';
+import likedHeart from '../img/liked.svg';
 import styles from '../styles/allProducts.module.scss';
 import checked from '../img/btn-checked.svg';
 import add from '../img/btn-plus.svg';
-
 import { useState } from 'react';
 
 
@@ -18,10 +17,15 @@ const ProductItem = ({id, name, url, price, onFavorite, onPlus }) => {
         setIsAdded(!isAdded);
     };
 
+    const onClickFavorite = () => {
+        console.log(isFavorite)
+        setIsFavorite(!isFavorite)
+    }
+
     return (
         <div className={styles.productCard}>
             <div className={styles.favorite} onClick={onFavorite}>
-                <img src={unlikedHeart} alt="unliked heart" />
+                <img onClick={onClickFavorite} src={isFavorite ? likedHeart : unlikedHeart} alt="unliked heart" />
             </div>
 
             <img src={url} alt="" />

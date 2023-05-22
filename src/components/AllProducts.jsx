@@ -23,7 +23,7 @@ const AllProducts = (props) => {
               name={item.fields.name} 
               url={item.fields.image_url} 
               price={item.fields.price}
-              onFavorite={() => {console.log("Added to Favorite")}}
+              // onFavorite={() => {console.log("Added to Favorite")}}
               onPlus={(obj) => props.onAddToCart(obj)} 
               />
    ))

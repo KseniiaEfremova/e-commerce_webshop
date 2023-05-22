@@ -11,10 +11,14 @@ export default function Cart({ onCloseCart,onRemoveFromCart, products = [] }) {
     return (
         <div className={styles.overlay}>
             <div className={styles.cart}>
-                <h3>Shopping bag
+                <h3>Shopping cart
                     <span onClick={onCloseCart} >{crossBtn}</span>
                 </h3>
                 <div className={styles.cartItems}>
+                    <div className={styles.emptyCart}>
+                        {/* <img src={require("../img/empty-cart.jpg")} alt="empty-cart" /> */}
+                        <p>Your shopping cart is empty</p>
+                    </div>
                     {products.map((item) => (
                         <div key={item.id} className={styles.cartItem}>
                             {/* <img src={require(item.url)} alt="trainers" /> */}

@@ -4,9 +4,9 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import AllProducts from './components/AllProducts';
 import Cart from './components/Cart';
-import productsData from "./products.json";
 import categories from './categories.json';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 
 function App() {
@@ -15,14 +15,15 @@ function App() {
   const [cartOpened, setcartOpened] = useState(false);
 
   useEffect(() => {
-    fetch('https://64674fcfba7110b663b4f74d.mockapi.io/products')
-      .then(res => {
-        return res.json();
-      })
-      .then((json) => {
-        setProducts(json);
-      })
+      axios.get('https://64674fcfba7110b663b4f74d.mockapi.io/products').then(res => {
+        setProducts(res.data);
+      });
+      axios.get('https://64674fcfba7110b663b4f74d.mockapi.io/cart').then(res => {
+        setCartProducts(res.data);
+      });
   }, [])
+
+
 
   const onAddToCart = (obj) => {
     // cartProducts.forEach((item) => {
@@ -30,22 +31,17 @@ function App() {
     //     setCartProducts(prev => [...prev, obj]);
     //   }
     // }) 
+    axios.post('https://64674fcfba7110b663b4f74d.mockapi.io/cart', obj);
     if (!cartProducts.includes(obj)) {
       setCartProducts(prev => [...prev, obj]);
     }
   };
 
-  const onRemoveFromCart = (obj) => {
-    cartProducts.forEach((item) => {
-      if (item.id === obj) {
-        const index = cartProducts.indexOf(item);
-        cartProducts.splice(index, 1);
-      }
-    })
-    setCartProducts(prev => [...prev]);
+  const onRemoveFromCart = (objId) => {
+    axios.delete(`https://64674fcfba7110b663b4f74d.mockapi.io/cart/${objId}`);
+    setCartProducts(prev => prev.filter(item => item.id !== objId));
   };
 
-  console.log(cartProducts);
   return (
     <div className='wrapper'>
       {cartOpened && <Cart products={cartProducts}
@@ -54,7 +50,7 @@ function App() {
       <Header onClickCart={() => setcartOpened(true)} />
       {/* <Home data={productsData}/> */}
       <AllProducts data={products}
-        onAddToCart={onAddToCart} />
+        onAddToCart={onAddToCart}/>
       <Footer categories={categories} />
     </div>
   );

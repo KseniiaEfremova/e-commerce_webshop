@@ -37,6 +37,16 @@
     .cartItems {
         overflow: auto;
     }
+    .emptyCart {
+        margin-top: 15px;
+        padding: 10px;
+        text-align: center;
+        color: gray;
+
+        img {
+            width: 40%;
+        }
+    }
 }
 
 // added cart items

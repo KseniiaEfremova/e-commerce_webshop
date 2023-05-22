@@ -38,6 +38,11 @@
         background: transparent;
         border: transparent;
         margin-left: 5px;
+        width: 100%;
+    }
+    span {
+        color: white;
+        margin-right: 5px;
     }
 }
 
@@ -140,6 +145,7 @@ input:focus {
     }
 
     .productCard {
+        width: 220px;
         margin: 5px;
         padding: 10px;
         background-color: rgba(61, 61, 61, 0.122);

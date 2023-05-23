@@ -28,16 +28,14 @@ function App() {
   }, [])
 
   const onAddToCart = (obj) => {
-    axios.post('https://64674fcfba7110b663b4f74d.mockapi.io/cart', obj);
-    setCartProducts(prev => {
-      // Check if the item already exists in cart
-      if (!prev.some(item => item.id === obj.id)) {
-        // If it doesn't exist, add it to the cart array
-        return [...prev, obj];
-      }
-      // If it already exists, return the unchanged cart array
-      return prev;
-    });
+    if ((cartProducts).find((item) => item.id === obj.id)) {
+      axios.delete(`https://64674fcfba7110b663b4f74d.mockapi.io/cart/${obj.id}`);
+      setCartProducts(prev => prev.filter(item => item.id !== obj.id));
+    } else {
+      axios.post('https://64674fcfba7110b663b4f74d.mockapi.io/cart', obj);
+      setCartProducts(prev => [...prev, obj]);
+    }
+
   };
 
   const onAddToFavorite = (obj) => {
@@ -53,7 +51,7 @@ function App() {
 
   };
 
-// This function is used to remove an item from the cart based on its ID.
+  // This function is used to remove an item from the cart based on its ID.
   const onRemoveFromCart = (objId) => {
     axios.delete(`https://64674fcfba7110b663b4f74d.mockapi.io/cart/${objId}`);
     // Update the cartProducts state by filtering out the item with the matching ID
@@ -75,8 +73,8 @@ function App() {
             onAddToCart={onAddToCart}
             onAddToFavorite={onAddToFavorite} />}></Route>
         <Route path='/favorites' element={
-          <Favorites items={favorites} 
-                    onAddToFavorite={onAddToFavorite} />}></Route>
+          <Favorites items={favorites}
+            onAddToFavorite={onAddToFavorite} />}></Route>
       </Routes>
       <Footer categories={categories} />
     </div>

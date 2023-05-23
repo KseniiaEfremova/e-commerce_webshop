@@ -8,13 +8,10 @@ export default function Favorites(props) {
     .filter((item) => item.id)
     .map(item => (
     <ProductItem key={item.id}
-              id={item.id}
-              name={item.name} 
-              url={item.url} 
-              price={item.price}
               onFavorite={(obj) => props.onAddToFavorite(obj)}
               onPlus={(obj) => props.onAddToCart(obj)} 
               favorited={true}
+              {...item}
               />
    ))
   return (

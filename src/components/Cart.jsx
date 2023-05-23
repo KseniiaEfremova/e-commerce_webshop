@@ -19,7 +19,7 @@ export default function Cart({ onCloseCart, onRemoveFromCart, products = [] }) {
             <div className={styles.cartItems}>
               {products.map((item) => (
                 <div key={item.id} className={styles.cartItem}>
-                  {/* <img src={require(item.url)} alt="trainers" /> */}
+                  <img src={item.url} alt="trainers" />
                   <div>
                     <p>
                       {item.name}

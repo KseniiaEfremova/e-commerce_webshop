@@ -18,8 +18,8 @@ const ProductItem = ({id, name, url, price, onFavorite, onPlus }) => {
     };
 
     const onClickFavorite = () => {
-        console.log(isFavorite)
-        setIsFavorite(!isFavorite)
+        onFavorite({id, name, url, price});
+        setIsFavorite(!isFavorite);
     }
 
     return (

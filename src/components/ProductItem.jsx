@@ -8,9 +8,10 @@ import { useState } from 'react';
 
 
 
-const ProductItem = ({id, name, url, price, onFavorite, onPlus }) => {
+const ProductItem = ({id, name, url, price, onFavorite, onPlus, favorited=false }) => {
+
     const [isAdded, setIsAdded] = useState(false);
-    const [isFavorite, setIsFavorite] = useState(false);
+    const [isFavorite, setIsFavorite] = useState(favorited);
 
     const onClickPlus = () => {
         onPlus({id, name, url, price});
@@ -21,7 +22,6 @@ const ProductItem = ({id, name, url, price, onFavorite, onPlus }) => {
         onFavorite({id, name, url, price});
         setIsFavorite(!isFavorite);
     }
-
     return (
         <div className={styles.productCard}>
             <div className={styles.favorite} onClick={onFavorite}>

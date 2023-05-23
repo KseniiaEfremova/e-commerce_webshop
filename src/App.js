@@ -8,7 +8,7 @@ import Cart from './components/Cart';
 import categories from './categories.json';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Favorites from './components/favorites';
+import Favorites from './components/Favorites';
 
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
   const [cartOpened, setcartOpened] = useState(false);
 
   useEffect(() => {
+    // This `useEffect` hook is used to fetch data from two API endpoints and update the state variables `products` and `cartProducts` accordingly.
     axios.get('https://64674fcfba7110b663b4f74d.mockapi.io/products').then(res => {
       setProducts(res.data);
     });
@@ -28,37 +29,54 @@ function App() {
 
   const onAddToCart = (obj) => {
     axios.post('https://64674fcfba7110b663b4f74d.mockapi.io/cart', obj);
-    if (!cartProducts.includes(obj)) {
-      setCartProducts(prev => [...prev, obj]);
-    }
+    setCartProducts(prev => {
+      // Check if the item already exists in cart
+      if (!prev.some(item => item.id === obj.id)) {
+        // If it doesn't exist, add it to the cart array
+        return [...prev, obj];
+      }
+      // If it already exists, return the unchanged cart array
+      return prev;
+    });
   };
 
   const onAddToFavorite = (obj) => {
-    axios.post('https://64674fcfba7110b663b4f74d.mockapi.io/favorites', obj);
-    if (!cartProducts.includes(obj)) {
-      setFavorites(prev => [...prev, obj]);
-    }
+    setFavorites(prev => {
+      // Check if the item already exists in favorites
+      if (!prev.some(item => item.id === obj.id)) {
+        // If it doesn't exist, add it to the favorites array
+        return [...prev, obj];
+      }
+      // If it already exists, return the unchanged favorites array
+      return prev;
+    });
+
   };
 
+// This function is used to remove an item from the cart based on its ID.
   const onRemoveFromCart = (objId) => {
     axios.delete(`https://64674fcfba7110b663b4f74d.mockapi.io/cart/${objId}`);
+    // Update the cartProducts state by filtering out the item with the matching ID
     setCartProducts(prev => prev.filter(item => item.id !== objId));
   };
 
   return (
     <div className='wrapper'>
-      {cartOpened && 
-      <Cart products={cartProducts}
-            onRemoveFromCart={onRemoveFromCart}
-            onCloseCart={() => setcartOpened(false)} />}
+      {/* Render the Cart component only if cartOpened is true */}
+      {cartOpened &&
+        <Cart products={cartProducts}
+          onRemoveFromCart={onRemoveFromCart}
+          onCloseCart={() => setcartOpened(false)} />}
       <Header onClickCart={() => setcartOpened(true)} />
       <Routes>
         <Route path='/home' element={<Home data={products} />}></Route>
         <Route path='/products' element={
           <AllProducts data={products}
-                      onAddToCart={onAddToCart}
-                      onAddToFavorite={onAddToFavorite} />}></Route>
-        <Route path='/favorites' element={<Favorites data={products} />}></Route>
+            onAddToCart={onAddToCart}
+            onAddToFavorite={onAddToFavorite} />}></Route>
+        <Route path='/favorites' element={
+          <Favorites items={favorites} 
+                    onAddToFavorite={onAddToFavorite} />}></Route>
       </Routes>
       <Footer categories={categories} />
     </div>

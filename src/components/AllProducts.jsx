@@ -14,7 +14,6 @@ const AllProducts = (props) => {
   const onChangeSearchInput = (event) => {
     setSearchValue(event.target.value);
   }
-  
   const productItem = props.data
   .filter((item) => item.fields.name.toLowerCase().includes(searchValue))
   .map(item => (
@@ -23,10 +22,11 @@ const AllProducts = (props) => {
               name={item.fields.name} 
               url={item.fields.image_url} 
               price={item.fields.price}
-              onFavorite={(obj) => props.onAddToCart(obj)}
-              onPlus={(obj) => props.onAddToCart(obj)} 
+              onFavorite={(obj) => props.onAddToFavorite(obj)}
+              onPlus={(obj) => props.onAddToCart(obj)}
               />
    ))
+
   return (
     <section className={styles.allProductsBox}>
       <div className={styles.titleSearch}>

@@ -6,45 +6,48 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 
-const crossBtn = <FontAwesomeIcon icon={faXmark} size='2xs'/>;
-
+const crossBtn = <FontAwesomeIcon icon={faXmark} size='2xs' />;
 
 const AllProducts = (props) => {
   const [searchValue, setSearchValue] = useState('');
 
   const onChangeSearchInput = (event) => {
     setSearchValue(event.target.value);
+  };
+
+  const renderItems = () => {
+    // const filteredItems = props.data.filter((item) => item.fields.name.toLowerCase().includes(searchValue.toLowerCase()));
+    console.log([...Array(10)] )
+    return (props.isLoading ? [...Array(10)] : props.data.filter((item) => item.fields.name.toLowerCase().includes(searchValue.toLowerCase()))).map(item => (
+        <ProductItem key={item.pk}
+          id={item.pk}
+          name={item.fields.name}
+          url={item.fields.image_url}
+          price={item.fields.price}
+          onFavorite={(obj) => props.onAddToFavorite(obj)}
+          onPlus={(obj) => props.onAddToCart(obj)}
+          added={props.cartProducts.some(obj => Number(obj.name) === Number(item.pk))}
+          loading={props.isLoading}
+        />
+      ))
   }
-  const productItem = props.data
-  .filter((item) => item.fields.name.toLowerCase().includes(searchValue))
-  .map(item => (
-    <ProductItem key={item.pk}
-              id={item.pk}
-              name={item.fields.name} 
-              url={item.fields.image_url} 
-              price={item.fields.price}
-              onFavorite={(obj) => props.onAddToFavorite(obj)}
-              onPlus={(obj) => props.onAddToCart(obj)}
-              added={props.cartProducts.some(obj => Number(obj.id) === Number(item.id))}
-              />
-   ))
 
   return (
     <section className={styles.allProductsBox}>
       <div className={styles.titleSearch}>
-        <h1>{searchValue ? `Seach for: "${searchValue}"` : "OUR PRODUCTS" }</h1>
+        <h1>{searchValue ? `Seach for: "${searchValue}"` : "OUR PRODUCTS"}</h1>
         <form action="" className={styles.searchBlock}>
-          <img src={searchIcon} alt="search icon "/>
+          <img src={searchIcon} alt="search icon " />
           <label htmlFor="search"></label>
-          <input onChange={onChangeSearchInput} value={searchValue} type="text" name='search' placeholder='Search...'/>
-          {searchValue && <span onClick={() => {setSearchValue('')}}>{crossBtn}</span>}
-          
-          
+          <input onChange={onChangeSearchInput} value={searchValue} type="text" name='search' placeholder='Search...' />
+          {searchValue && <span onClick={() => { setSearchValue('') }}>{crossBtn}</span>}
+
+
         </form>
       </div>
-      
+
       <div className={styles.gridWrapper}>
-        {productItem}
+        {renderItems()}
       </div>
 
 

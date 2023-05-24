@@ -55,7 +55,7 @@ input:focus {
 .productCard {
     margin: 5px;
     padding: 10px;
-    background-color: rgba(0, 4, 7, 0.133);
+    background-color: rgba(0, 4, 7, 0.06);
     border-radius: 5px;
     overflow: hidden;
     transition: box-shadow 300ms ease, transform 0.2s ease;
@@ -148,7 +148,6 @@ input:focus {
         width: 220px;
         margin: 5px;
         padding: 10px;
-        background-color: rgba(61, 61, 61, 0.122);
         border-radius: 5px;
 
         .favorite {

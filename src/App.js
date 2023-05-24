@@ -16,15 +16,20 @@ function App() {
   const [cartProducts, setCartProducts] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [cartOpened, setcartOpened] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
+
+  // This `useEffect` hook is used to fetch data from two API endpoints and update the state variables `products` and `cartProducts` accordingly.
   useEffect(() => {
-    // This `useEffect` hook is used to fetch data from two API endpoints and update the state variables `products` and `cartProducts` accordingly.
-    axios.get('https://64674fcfba7110b663b4f74d.mockapi.io/products').then(res => {
-      setProducts(res.data);
-    });
-    axios.get('https://64674fcfba7110b663b4f74d.mockapi.io/cart').then(res => {
-      setCartProducts(res.data);
-    });
+    async function fetchData() {
+      const productsResponse = await axios.get('https://64674fcfba7110b663b4f74d.mockapi.io/products');
+      const cartResponse = await axios.get('https://64674fcfba7110b663b4f74d.mockapi.io/cart');
+
+      setIsLoading(false);
+      setProducts(productsResponse.data);
+      setCartProducts(cartResponse.data);
+    }
+    fetchData();
   }, [])
 
   const onAddToCart = (obj) => {
@@ -72,7 +77,9 @@ function App() {
           <AllProducts data={products}
             cartProducts={cartProducts}
             onAddToCart={onAddToCart}
-            onAddToFavorite={onAddToFavorite} />}></Route>
+            onAddToFavorite={onAddToFavorite}
+            isLoading={isLoading} />}>
+        </Route>
         <Route path='/favorites' element={
           <Favorites items={favorites}
             onAddToFavorite={onAddToFavorite} />}></Route>

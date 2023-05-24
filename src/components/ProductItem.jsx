@@ -8,9 +8,9 @@ import { useState } from 'react';
 
 
 
-const ProductItem = ({id, name, url, price, onFavorite, onPlus, favorited=false }) => {
+const ProductItem = ({id, name, url, price, onFavorite, onPlus, favorited=false, added=false }) => {
 
-    const [isAdded, setIsAdded] = useState(false);
+    const [isAdded, setIsAdded] = useState(added);
     const [isFavorite, setIsFavorite] = useState(favorited);
 
     const onClickPlus = () => {

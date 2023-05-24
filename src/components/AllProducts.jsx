@@ -8,6 +8,7 @@ import { useState } from 'react';
 
 const crossBtn = <FontAwesomeIcon icon={faXmark} size='2xs'/>;
 
+
 const AllProducts = (props) => {
   const [searchValue, setSearchValue] = useState('');
 
@@ -24,6 +25,7 @@ const AllProducts = (props) => {
               price={item.fields.price}
               onFavorite={(obj) => props.onAddToFavorite(obj)}
               onPlus={(obj) => props.onAddToCart(obj)}
+              added={props.cartProducts.some(obj => Number(obj.id) === Number(item.id))}
               />
    ))
 

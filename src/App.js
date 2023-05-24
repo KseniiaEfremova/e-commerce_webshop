@@ -28,14 +28,14 @@ function App() {
   }, [])
 
   const onAddToCart = (obj) => {
-    if ((cartProducts).find((item) => item.id === obj.id)) {
+    if ((cartProducts).find((item) => Number(item.id) === Number(obj.id))) {
       axios.delete(`https://64674fcfba7110b663b4f74d.mockapi.io/cart/${obj.id}`);
-      setCartProducts(prev => prev.filter(item => item.id !== obj.id));
+      setCartProducts(prev => prev.filter(item => Number(item.id) !== Number(obj.id)));
     } else {
       axios.post('https://64674fcfba7110b663b4f74d.mockapi.io/cart', obj);
       setCartProducts(prev => [...prev, obj]);
     }
-
+    console.log(cartProducts)
   };
 
   const onAddToFavorite = (obj) => {
@@ -70,6 +70,7 @@ function App() {
         <Route path='/home' element={<Home data={products} />}></Route>
         <Route path='/products' element={
           <AllProducts data={products}
+            cartProducts={cartProducts}
             onAddToCart={onAddToCart}
             onAddToFavorite={onAddToFavorite} />}></Route>
         <Route path='/favorites' element={

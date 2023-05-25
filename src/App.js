@@ -70,6 +70,7 @@ function App() {
         <Cart products={cartProducts}
           onRemoveFromCart={onRemoveFromCart}
           onCloseCart={() => setcartOpened(false)} />}
+
       <Header onClickCart={() => setcartOpened(true)} />
       <Routes>
         <Route path='/home' element={<Home data={products} />}></Route>

@@ -44,6 +44,12 @@ p {
   opacity: 0.5;
  }
 
+ .preloader {
+  text-align: center;
+  margin: 50px;
+  display: flex;
+ }
+
 
 @media screen and (min-width: 600px) {
   .wrapper {

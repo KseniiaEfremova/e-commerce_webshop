@@ -5,6 +5,7 @@ import searchIcon from '../img/search.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
+import Preloader from './Preloader';
 
 const crossBtn = <FontAwesomeIcon icon={faXmark} size='2xs' />;
 
@@ -16,9 +17,10 @@ const AllProducts = (props) => {
   };
 
   const renderItems = () => {
-    // const filteredItems = props.data.filter((item) => item.fields.name.toLowerCase().includes(searchValue.toLowerCase()));
-    console.log([...Array(10)] )
-    return (props.isLoading ? [...Array(10)] : props.data.filter((item) => item.fields.name.toLowerCase().includes(searchValue.toLowerCase()))).map(item => (
+    console.log(props.cartProducts)
+    return (props.isLoading ? Array(10).fill(<Preloader />) : props.data
+      .filter((item) => item.fields.name.toLowerCase().includes(searchValue))
+      .map(item => (
         <ProductItem key={item.pk}
           id={item.pk}
           name={item.fields.name}
@@ -26,10 +28,10 @@ const AllProducts = (props) => {
           price={item.fields.price}
           onFavorite={(obj) => props.onAddToFavorite(obj)}
           onPlus={(obj) => props.onAddToCart(obj)}
-          added={props.cartProducts.some(obj => Number(obj.name) === Number(item.pk))}
+          added={props.cartProducts.some(obj => Number(obj.id) === Number(item.pk))}
           loading={props.isLoading}
         />
-      ))
+      )))
   }
 
   return (
@@ -41,8 +43,6 @@ const AllProducts = (props) => {
           <label htmlFor="search"></label>
           <input onChange={onChangeSearchInput} value={searchValue} type="text" name='search' placeholder='Search...' />
           {searchValue && <span onClick={() => { setSearchValue('') }}>{crossBtn}</span>}
-
-
         </form>
       </div>
 

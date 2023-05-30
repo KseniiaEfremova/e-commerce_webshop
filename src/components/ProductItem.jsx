@@ -24,6 +24,7 @@ const ProductItem = ({ id,
   };
 
   const onClickFavorite = () => {
+    console.log({ id, name, url, price })
     onFavorite({ id, name, url, price });
     setIsFavorite(!isFavorite);
   }
@@ -39,7 +40,6 @@ const ProductItem = ({ id,
       <button className={styles.viewItem}>View Item</button>
       <div className={styles.cardBottom}>
         <span>Price:<b>£ {price}</b></span>
-        {/* <img className={styles.plus} src={checked} alt="checked button" /> */}
         <img onClick={onClickPlus} className={styles.plus} src={isAdded ? checked : add} alt="plus button" />
       </div>
     </div>

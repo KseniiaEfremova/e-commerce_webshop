@@ -17,7 +17,6 @@ const AllProducts = (props) => {
   };
 
   const renderItems = () => {
-    console.log(props.cartProducts)
     return (props.isLoading ? Array(10).fill(<Preloader />) : props.data
       .filter((item) => item.fields.name.toLowerCase().includes(searchValue))
       .map(item => (

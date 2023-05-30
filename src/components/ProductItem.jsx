@@ -3,7 +3,8 @@ import likedHeart from '../img/liked.svg';
 import styles from '../styles/allProducts.module.scss';
 import checked from '../img/btn-checked.svg';
 import add from '../img/btn-plus.svg';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import AppContext from '../components/context';
 
 
 const ProductItem = ({ id,
@@ -15,12 +16,11 @@ const ProductItem = ({ id,
   favorited = false,
   added = false}) => {
 
-  const [isAdded, setIsAdded] = useState(added);
+  const {isItemAdded} = useContext(AppContext);
   const [isFavorite, setIsFavorite] = useState(favorited);
 
   const onClickPlus = () => {
     onPlus({ id, name, url, price });
-    setIsAdded(!isAdded);
   };
 
   const onClickFavorite = () => {
@@ -40,7 +40,7 @@ const ProductItem = ({ id,
       <button className={styles.viewItem}>View Item</button>
       <div className={styles.cardBottom}>
         <span>Price:<b>£ {price}</b></span>
-        <img onClick={onClickPlus} className={styles.plus} src={isAdded ? checked : add} alt="plus button" />
+        <img onClick={onClickPlus} className={styles.plus} src={isItemAdded(id) ? checked : add} alt="plus button" />
       </div>
     </div>
   )

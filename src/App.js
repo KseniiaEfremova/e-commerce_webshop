@@ -12,8 +12,6 @@ import axios from 'axios';
 import Favorites from './components/Favorites';
 
 
-
-
 function App() {
   const [products, setProducts] = useState([]);
   const [cartProducts, setCartProducts] = useState([]);
@@ -45,7 +43,6 @@ function App() {
       axios.post('https://64674fcfba7110b663b4f74d.mockapi.io/cart', obj);
       setCartProducts(prev => [...prev, obj]);
     }
-    console.log(cartProducts)
   };
 
   const onAddToFavorite = async (obj) => {
@@ -68,18 +65,6 @@ function App() {
 
   };
 
-
-  // setFavorites(prev => {
-  //   // Check if the item already exists in favorites
-  //   if (!prev.some(item => item.id === obj.id)) {
-  //     // If it doesn't exist, add it to the favorites array
-  //     return [...prev, obj];
-  //   }
-  //   // If it already exists, return the unchanged favorites array
-  //   return prev;
-  // });
-
-
   // This function is used to remove an item from the cart based on its ID.
   const onRemoveFromCart = (objId) => {
     axios.delete(`https://64674fcfba7110b663b4f74d.mockapi.io/cart/${objId}`);
@@ -87,8 +72,13 @@ function App() {
     setCartProducts(prev => prev.filter(item => item.id !== objId));
   };
 
+  const isItemAdded = (id) => {
+    return cartProducts.some((obj) => Number(obj.id) === Number(id));
+    // props.cartProducts.some(obj => Number(obj.id) === Number(item.pk))
+  }
+
   return (
-    <AppContext.Provider value={{ products, cartProducts, favorites }}>
+    <AppContext.Provider value={{ products, cartProducts, favorites, isItemAdded }}>
       <div className='wrapper'>
         {/* Render the Cart component only if cartOpened is true */}
         {cartOpened &&

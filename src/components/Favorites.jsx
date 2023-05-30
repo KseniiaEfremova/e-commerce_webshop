@@ -6,12 +6,11 @@ import AppContext from './context';
 
 export default function Favorites(props) {
   const {favorites} = useContext(AppContext);
-  console.log(props.items)
     const productItem = favorites
     .filter((item) => item.id)
     .map(item => (
     <ProductItem key={item.id}
-              onFavorite={(obj) => props.onAddToFavorite(obj)}
+              onFavorite={props.onAddToFavorite}
               onPlus={(obj) => props.onAddToCart(obj)} 
               favorited={true}
               {...item}

@@ -46,7 +46,6 @@ function App() {
   };
 
   const onAddToFavorite = async (obj) => {
-    console.log(obj)
     console.log()
     if (obj.name) {
       try {
@@ -58,8 +57,7 @@ function App() {
           setFavorites(prev => [...prev, data]);
         }
       } catch (error) {
-        alert("Error");
-        console.error(error)
+        console.error("Error while adding to favourites: ", error)
       }
     }
 
@@ -78,7 +76,7 @@ function App() {
   }
 
   return (
-    <AppContext.Provider value={{ products, cartProducts, favorites, isItemAdded }}>
+    <AppContext.Provider value={{ products, cartProducts, favorites, isItemAdded, onAddToFavorite }}>
       <div className='wrapper'>
         {/* Render the Cart component only if cartOpened is true */}
         {cartOpened &&
@@ -97,7 +95,7 @@ function App() {
               isLoading={isLoading} />}>
           </Route>
           <Route path='/favorites' element={
-            <Favorites onAddToFavorite={onAddToFavorite} />}></Route>
+            <Favorites />}></Route>
         </Routes>
         <Footer categories={categories} />
       </div>

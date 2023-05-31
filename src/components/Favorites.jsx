@@ -5,12 +5,12 @@ import { useContext } from 'react';
 import AppContext from './context';
 
 export default function Favorites(props) {
-  const {favorites} = useContext(AppContext);
+  const {favorites, onAddToFavorite} = useContext(AppContext);
     const productItem = favorites
     .filter((item) => item.id)
     .map(item => (
     <ProductItem key={item.id}
-              onFavorite={props.onAddToFavorite}
+              onFavorite={onAddToFavorite}
               onPlus={(obj) => props.onAddToCart(obj)} 
               favorited={true}
               {...item}

@@ -7,14 +7,14 @@ import { useState, useContext } from 'react';
 import AppContext from '../components/context';
 
 
-const ProductItem = ({ id,
+const ProductItem = ({ 
+  id,
   name,
   url,
   price,
   onFavorite,
   onPlus,
-  favorited = false,
-  added = false}) => {
+  favorited = false}) => {
 
   const {isItemAdded} = useContext(AppContext);
   const [isFavorite, setIsFavorite] = useState(favorited);

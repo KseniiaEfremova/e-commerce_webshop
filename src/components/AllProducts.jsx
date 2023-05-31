@@ -7,9 +7,11 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import Preloader from './Preloader';
 
+
 const crossBtn = <FontAwesomeIcon icon={faXmark} size='2xs' />;
 
 const AllProducts = (props) => {
+  
   const [searchValue, setSearchValue] = useState('');
 
   const onChangeSearchInput = (event) => {
@@ -17,7 +19,6 @@ const AllProducts = (props) => {
   };
 
   const renderItems = () => {
-    console.log(props.cartProducts)
     return (props.isLoading ? Array(10).fill(<Preloader />) : props.data
       .filter((item) => item.fields.name.toLowerCase().includes(searchValue))
       .map(item => (
@@ -28,7 +29,6 @@ const AllProducts = (props) => {
           price={item.fields.price}
           onFavorite={(obj) => props.onAddToFavorite(obj)}
           onPlus={(obj) => props.onAddToCart(obj)}
-          added={props.cartProducts.some(obj => Number(obj.id) === Number(item.pk))}
           loading={props.isLoading}
         />
       )))

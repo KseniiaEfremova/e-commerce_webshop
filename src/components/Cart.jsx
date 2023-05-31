@@ -3,6 +3,8 @@ import styles from '../styles/cart.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import emptyCart from '../img/empty-cart.jpg';
+import Info from './Info';
 
 const crossBtn = <FontAwesomeIcon icon={faXmark} />
 const trashBtn = <FontAwesomeIcon icon={faTrashCan} />
@@ -50,10 +52,7 @@ export default function Cart({ onCloseCart, onRemoveFromCart, products = [] }) {
               </button>
             </div>
           </>) :
-          <div className={styles.emptyCart}>
-            <img src={require("../img/empty-cart.jpg")} alt="empty-cart" />
-            <p>Your shopping cart is empty</p>
-          </div>
+          <Info img={emptyCart} text="Your shopping cart is empty" />
         }
 
       </div>

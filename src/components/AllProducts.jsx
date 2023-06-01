@@ -28,7 +28,6 @@ const AllProducts = (props) => {
           price={item.fields.price}
           onFavorite={(obj) => props.onAddToFavorite(obj)}
           onPlus={(obj) => props.onAddToCart(obj)}
-          added={props.cartProducts.some(obj => Number(obj.id) === Number(item.pk))}
           loading={props.isLoading}
         />
       )))

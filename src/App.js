@@ -9,6 +9,7 @@ import categories from './categories.json';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Favorites from './components/Favorites';
+import AppContext from './components/context';
 
 
 function App() {
@@ -63,30 +64,37 @@ function App() {
     setCartProducts(prev => prev.filter(item => item.id !== objId));
   };
 
-  return (
-    <div className='wrapper'>
-      {/* Render the Cart component only if cartOpened is true */}
-      {cartOpened &&
-        <Cart products={cartProducts}
-          onRemoveFromCart={onRemoveFromCart}
-          onCloseCart={() => setcartOpened(false)} />}
+  const isItemAdded = (id) => {
+    return cartProducts.some((obj) => Number(obj.id) === Number(id));
+    // props.cartProducts.some(obj => Number(obj.id) === Number(item.pk))
+  }
 
-      <Header onClickCart={() => setcartOpened(true)} />
-      <Routes>
-        <Route path='/home' element={<Home data={products} />}></Route>
-        <Route path='/products' element={
-          <AllProducts data={products}
-            cartProducts={cartProducts}
-            onAddToCart={onAddToCart}
-            onAddToFavorite={onAddToFavorite}
-            isLoading={isLoading} />}>
-        </Route>
-        <Route path='/favorites' element={
-          <Favorites items={favorites}
-            onAddToFavorite={onAddToFavorite} />}></Route>
-      </Routes>
-      <Footer categories={categories} />
-    </div>
+  return (
+    <AppContext.Provider value={{ products, cartProducts, favorites, isItemAdded, onAddToFavorite }}>
+      <div className='wrapper'>
+        {/* Render the Cart component only if cartOpened is true */}
+        {cartOpened &&
+          <Cart products={cartProducts}
+            onRemoveFromCart={onRemoveFromCart}
+            onCloseCart={() => setcartOpened(false)} />}
+
+        <Header onClickCart={() => setcartOpened(true)} />
+        <Routes>
+          <Route path='/home' element={<Home data={products} />}></Route>
+          <Route path='/products' element={
+            <AllProducts data={products}
+              cartProducts={cartProducts}
+              onAddToCart={onAddToCart}
+              onAddToFavorite={onAddToFavorite}
+              isLoading={isLoading} />}>
+          </Route>
+          <Route path='/favorites' element={
+            <Favorites />}></Route>
+        </Routes>
+        <Footer categories={categories} />
+      </div>
+    </AppContext.Provider>
+
   );
 }
 

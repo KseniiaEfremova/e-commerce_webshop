@@ -18,13 +18,17 @@ function App() {
   const [cartOpened, setcartOpened] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  const products_url = 'https://64674fcfba7110b663b4f74d.mockapi.io/products';
+  const cart_url = 'https://64674fcfba7110b663b4f74d.mockapi.io/cart';
+  const favorites_url = 'https://64707a693de51400f7245522.mockapi.io/favorites';
+
 
   // This `useEffect` hook is used to fetch data from two API endpoints and update the state variables `products` and `cartProducts` accordingly.
   useEffect(() => {
     async function fetchData() {
-      const productsResponse = await axios.get('https://64674fcfba7110b663b4f74d.mockapi.io/products');
-      const cartResponse = await axios.get('https://64674fcfba7110b663b4f74d.mockapi.io/cart');
-      const favoritesResponse = await axios.get('https://64707a693de51400f7245522.mockapi.io/favorites');
+      const productsResponse = await axios.get(products_url);
+      const cartResponse = await axios.get(cart_url);
+      const favoritesResponse = await axios.get(favorites_url);
 
       setIsLoading(false);
       setProducts(productsResponse.data);
@@ -36,24 +40,24 @@ function App() {
 
   const onAddToCart = (obj) => {
     if ((cartProducts).find((item) => Number(item.id) === Number(obj.id))) {
-      axios.delete(`https://64674fcfba7110b663b4f74d.mockapi.io/cart/${obj.id}`);
+      axios.delete(cart_url +'/' + obj.id);
       setCartProducts(prev => prev.filter(item => Number(item.id) !== Number(obj.id)));
     } else {
-      axios.post('https://64674fcfba7110b663b4f74d.mockapi.io/cart', obj);
+      axios.post(cart_url, obj);
       setCartProducts(prev => [...prev, obj]);
     }
     console.log(cartProducts)
   };
 
 
-  const onAddToFavorite = async (obj) => {
+  const onToggleFavorite = async (obj) => {
     if (obj.name) {
       try {
         if ((favorites).find(item => Number(item.id) === Number(obj.id))) {
-          axios.delete(`https://64707a693de51400f7245522.mockapi.io/favorites/${obj.id}`);
+          axios.delete(favorites_url + '/' + obj.id);
           setFavorites(prev => prev.filter(item => Number(item.id) !== Number(obj.id)));
         } else {
-          const { data } = await axios.post('https://64707a693de51400f7245522.mockapi.io/favorites', obj);
+          const { data } = await axios.post(favorites_url, obj);
           setFavorites(prev => [...prev, data]);
         }
       } catch (error) {
@@ -64,7 +68,7 @@ function App() {
 
   // This function is used to remove an item from the cart based on its ID.
   const onRemoveFromCart = (objId) => {
-    axios.delete(`https://64674fcfba7110b663b4f74d.mockapi.io/cart/${objId}`);
+    axios.delete(cart_url + '/' + objId);
     // Update the cartProducts state by filtering out the item with the matching ID
     setCartProducts(prev => prev.filter(item => item.id !== objId));
   };
@@ -84,12 +88,12 @@ function App() {
           <AllProducts data={products}
             cartProducts={cartProducts}
             onAddToCart={onAddToCart}
-            onAddToFavorite={onAddToFavorite}
+            onToggleFavorite={onToggleFavorite}
             isLoading={isLoading} />}>
         </Route>
         <Route path='/favorites' element={
           <Favorites items={favorites}
-            onAddToFavorite={onAddToFavorite} />}></Route>
+            onToggleFavorite={onToggleFavorite} />}></Route>
       </Routes>
       <Footer categories={categories} />
     </div>
